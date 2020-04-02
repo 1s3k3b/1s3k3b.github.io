@@ -1,0 +1,19 @@
+body {
+    background-color: #232323;
+    color: white;
+    font-family: "Segoe UI", Arial;
+}
+
+div {
+    margin-bottom: 100px;
+}
+
+a, p {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+a:-webkit-any-link, a[href] {
+    color: white;
+}

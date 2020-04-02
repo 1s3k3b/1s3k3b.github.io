@@ -1,0 +1,32 @@
+body {
+    font-family: Roboto, "Segoe UI", Arial;
+    font-weight: 200;
+    background-color: #323232;
+}
+
+table, th, td {
+    font-family: Roboto, "Segoe UI", Arial;
+    font-weight: 100;
+    border: 1px solid rgba(255,255,255,.7);
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 15;
+}
+
+table {
+    background-color: #232323;
+    color: rgba(255,255,255,.7);
+}
+
+td * {
+    margin-left: 0;
+    text-align: left;
+    padding-left: 15;
+}
+
+ul, li {
+    list-style-type: circle;
+}

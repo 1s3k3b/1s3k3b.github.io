@@ -1,0 +1,16 @@
+body {
+    background-color: #232323;
+    margin: 0px;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Segoe UI";
+    font-weight: 200;
+    color: white;
+}
+
+textarea {
+    width: 49%;
+    height: 90%;
+}

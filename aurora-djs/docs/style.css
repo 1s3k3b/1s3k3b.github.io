@@ -1,0 +1,17 @@
+body {
+    background-color: #232323;
+    color: white;
+    font-family: "Segoe UI", Arial;
+}
+
+a {
+    color: white;
+}
+
+.params {
+    margin-left: 65px;
+}
+
+.props {
+    margin-left: 35px;
+}

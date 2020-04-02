@@ -1,0 +1,19 @@
+body {
+    background-color: #232323;
+    color: white;
+    font-family: "Segoe UI", Arial;
+}
+
+button {
+    background-color: #3399cc;
+    border: none;
+    width: 70px;
+    height: 40px;
+    color: #fefefe;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#rightw, #leftw {
+    margin-top: -3px;
+}

@@ -1,0 +1,11 @@
+body {
+    font-family: "Segoe UI";
+    background-color: #232323;
+    color: #ffffff;
+}
+
+textarea {
+    margin-top: 27;
+    width: 100%;
+    height: 70%;
+}

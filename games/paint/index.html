@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Paint</title>
+        <link rel="stylesheet" href="./style.css">
+        <script src="./index.js"></script>
+    </head>
+    <body>
+        <div id="settings">
+            <label>Line Width: </label><input type="range" min="1" max="100" value="1" id="linew"><a id="linewd">1</a><br>
+            <label>Color: </label><input id="color" type="color" value="#ffffff"><button id="randc">Random</button><br>
+            <label>Eraser: </label><input id="eraser" type="checkbox"><br>
+            <button id="downl">Download</button><br>
+            <button id="reset">Reset</button>
+        </div>
+        <canvas id="c" width="100%" height="100%"></canvas>
+    </body>
+</html>

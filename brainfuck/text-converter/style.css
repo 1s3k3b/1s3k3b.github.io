@@ -1,0 +1,21 @@
+body {
+    background-color: #232323;
+    font-family: Arial;
+}
+
+textarea {
+    border: none;
+    height: 47%;
+    width: 99%;
+    display: inline;
+    background-color: #eeeeee;
+    color: #555555;
+}
+
+#outpTxta {
+    margin-top: 6%;
+}
+
+::placeholder {
+    color: #cccccc;
+}

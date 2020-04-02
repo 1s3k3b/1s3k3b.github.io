@@ -1,0 +1,9 @@
+<html>
+    <head>
+        <title>Discord Emojis</title>
+        <script>
+            const getRandom = () => new Array(18).fill(() => String(Math.round(Math.random() * 10))).map(f => f()).join("");
+            window.location = `https://cdn.discordapp.com/emojis/${new URLSearchParams(window.location.search).get("id") || getRandom()}`;
+        </script>
+    </head>
+</html>

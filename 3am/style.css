@@ -1,0 +1,23 @@
+body {
+    background-color: #232323;
+    color: white;
+    font-family: "Segoe UI", Arial;
+}
+
+#inp {
+    height: 40%;
+    width: 100%;
+}
+
+button {
+    margin-top: 10;
+    margin-bottom: 10;
+    margin-right: 10;
+    background-color: #fefefe;
+    border: 0;
+}
+
+#outp {
+    width: 100%;
+    height: 56%;
+}

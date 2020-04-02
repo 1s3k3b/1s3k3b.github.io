@@ -1,0 +1,250 @@
+.token.pre.gfm *, .prism * {
+	 font-weight: inherit !important;
+}
+ .token.pre.gfm .token.comment, .prism .token.comment, .token.pre.gfm .token.prolog, .prism .token.prolog, .token.pre.gfm .token.doctype, .prism .token.doctype, .token.pre.gfm .token.cdata, .prism .token.cdata {
+	 color: #708090;
+}
+ .token.pre.gfm .token.punctuation, .prism .token.punctuation {
+	 color: #999;
+}
+ .token.pre.gfm .namespace, .prism .namespace {
+	 opacity: 0.7;
+}
+ .token.pre.gfm .token.property, .prism .token.property, .token.pre.gfm .token.tag, .prism .token.tag, .token.pre.gfm .token.boolean, .prism .token.boolean, .token.pre.gfm .token.number, .prism .token.number, .token.pre.gfm .token.constant, .prism .token.constant, .token.pre.gfm .token.symbol, .prism .token.symbol, .token.pre.gfm .token.deleted, .prism .token.deleted {
+	 color: #f6ff47;
+}
+ .token.pre.gfm .token.selector, .prism .token.selector, .token.pre.gfm .token.attr-name, .prism .token.attr-name, .token.pre.gfm .token.string, .prism .token.string, .token.pre.gfm .token.char, .prism .token.char, .token.pre.gfm .token.builtin, .prism .token.builtin, .token.pre.gfm .token.inserted, .prism .token.inserted {
+	 color: #4763ff;
+}
+ .token.pre.gfm .token.operator, .prism .token.operator, .token.pre.gfm .token.entity, .prism .token.entity, .token.pre.gfm .token.url, .prism .token.url, .token.pre.gfm .language-css .token.string, .prism .language-css .token.string, .token.pre.gfm .style .token.string, .prism .style .token.string {
+	 color: #a67f59;
+}
+ .token.pre.gfm .token.atrule, .prism .token.atrule, .token.pre.gfm .token.attr-value, .prism .token.attr-value, .token.pre.gfm .token.keyword, .prism .token.keyword {
+	 color: #ff36a4;
+}
+ .token.pre.gfm .token.function, .prism .token.function {
+	 color: #4eff47;
+}
+ .token.pre.gfm .token.regex, .prism .token.regex, .token.pre.gfm .token.important, .prism .token.important, .token.pre.gfm .token.variable, .prism .token.variable {
+	 color: #e90;
+}
+ .token.pre.gfm .token.important, .prism .token.important, .token.pre.gfm .token.bold, .prism .token.bold {
+	 font-weight: 500;
+}
+ .token.pre.gfm .token.italic, .prism .token.italic {
+	 font-style: italic;
+}
+ 
+
+.markdown-highlighting {
+	 color: rgba(0, 0, 0, 0.8);
+	 caret-color: #000;
+	 font-family: inherit;
+	 font-size: inherit;
+	 -webkit-font-smoothing: auto;
+	 -moz-osx-font-smoothing: auto;
+	 font-weight: 400;
+}
+ .app--dark .markdown-highlighting {
+	 color: rgba(255, 255, 255, 0.8);
+	 caret-color: #fff;
+}
+ .markdown-highlighting .code {
+	 font-family: 'Roboto Mono', 'Lucida Sans Typewriter', 'Lucida Console', monaco, Courrier, monospace;
+	 font-size: 0.85em;
+}
+ .markdown-highlighting .code * {
+	 font-size: inherit !important;
+}
+ .markdown-highlighting .pre {
+	 color: rgba(0, 0, 0, 0.8);
+	 font-family: 'Roboto Mono', 'Lucida Sans Typewriter', 'Lucida Console', monaco, Courrier, monospace;
+	 font-size: 0.85em;
+}
+ .app--dark .markdown-highlighting .pre {
+	 color: rgba(255, 255, 255, 0.8);
+}
+ .markdown-highlighting .pre [class*='language-'] {
+	 color: #000;
+}
+ .app--dark .markdown-highlighting .pre [class*='language-'] {
+	 color: #fff;
+}
+ .markdown-highlighting .pre * {
+	 font-size: inherit !important;
+}
+ .markdown-highlighting .pre, .markdown-highlighting .pre * {
+	 line-height: 1.33;
+}
+ .markdown-highlighting .tag {
+	 color: rgba(0, 0, 0, 0.8);
+	 font-family: 'Roboto Mono', 'Lucida Sans Typewriter', 'Lucida Console', monaco, Courrier, monospace;
+	 font-size: 0.85em;
+	 font-weight: 600;
+}
+ .app--dark .markdown-highlighting .tag {
+	 color: rgba(255, 255, 255, 0.8);
+}
+ .markdown-highlighting .tag .punctuation, .markdown-highlighting .tag .attr-value, .markdown-highlighting .tag .attr-name {
+	 font-weight: 400;
+}
+ .markdown-highlighting .tag * {
+	 font-size: inherit !important;
+}
+ .markdown-highlighting .latex, .markdown-highlighting .math {
+	 color: rgba(0, 0, 0, 0.8);
+}
+ .app--dark .markdown-highlighting .latex, .app--dark .markdown-highlighting .math {
+	 color: rgba(255, 255, 255, 0.8);
+}
+ .markdown-highlighting .entity {
+	 color: rgba(0, 0, 0, 0.8);
+	 font-family: 'Roboto Mono', 'Lucida Sans Typewriter', 'Lucida Console', monaco, Courrier, monospace;
+	 font-size: 0.85em;
+	 font-style: italic;
+}
+ .app--dark .markdown-highlighting .entity {
+	 color: rgba(255, 255, 255, 0.8);
+}
+ .markdown-highlighting .entity * {
+	 font-size: inherit !important;
+}
+ .markdown-highlighting .table {
+	 font-family: 'Roboto Mono', 'Lucida Sans Typewriter', 'Lucida Console', monaco, Courrier, monospace;
+	 font-size: 0.85em;
+}
+ .markdown-highlighting .table * {
+	 font-size: inherit !important;
+}
+ .markdown-highlighting .comment {
+	 color: rgba(0, 0, 0, 0.28);
+}
+ .app--dark .markdown-highlighting .comment {
+	 color: rgba(255, 255, 255, 0.28);
+}
+ .markdown-highlighting .keyword {
+	 color: #000;
+	 font-weight: 600;
+}
+ .app--dark .markdown-highlighting .keyword {
+	 color: #fff;
+}
+ .markdown-highlighting .code, .markdown-highlighting .img, .markdown-highlighting .img-wrapper, .markdown-highlighting .imgref, .markdown-highlighting .cl-toc {
+	 background-color: rgba(0, 0, 0, 0.05);
+	 border-radius: 2px;
+	 padding: 0.15em 0;
+}
+ .markdown-highlighting .img-wrapper {
+	 display: inline-block;
+}
+ .markdown-highlighting .img-wrapper .img {
+	 display: inline-block;
+	 padding: 0;
+	 background-color: transparent;
+}
+ .markdown-highlighting .img-wrapper img {
+	 max-width: 100%;
+	 padding: 0 0.15em;
+	 box-sizing: content-box;
+}
+ .markdown-highlighting .cl-toc {
+	 font-size: 2.8em;
+	 padding: 0.15em;
+}
+ .markdown-highlighting .blockquote {
+	 color: rgba(0, 0, 0, 0.48);
+}
+ .app--dark .markdown-highlighting .blockquote {
+	 color: rgba(255, 255, 255, 0.48);
+}
+ .markdown-highlighting .h1, .markdown-highlighting .h11, .markdown-highlighting .h2, .markdown-highlighting .h22, .markdown-highlighting .h3, .markdown-highlighting .h4, .markdown-highlighting .h5, .markdown-highlighting .h6 {
+	 font-weight: 600;
+}
+ .markdown-highlighting .h1, .markdown-highlighting .h11, .markdown-highlighting .h2, .markdown-highlighting .h22, .markdown-highlighting .h3, .markdown-highlighting .h4, .markdown-highlighting .h5, .markdown-highlighting .h6, .markdown-highlighting .h1 *, .markdown-highlighting .h11 *, .markdown-highlighting .h2 *, .markdown-highlighting .h22 *, .markdown-highlighting .h3 *, .markdown-highlighting .h4 *, .markdown-highlighting .h5 *, .markdown-highlighting .h6 * {
+	 line-height: 1.33;
+}
+ .markdown-highlighting .h1, .markdown-highlighting .h11 {
+	 font-size: 2em;
+}
+ .markdown-highlighting .h2, .markdown-highlighting .h22 {
+	 font-size: 1.5em;
+}
+ .markdown-highlighting .h3 {
+	 font-size: 1.17em;
+}
+ .markdown-highlighting .h4 {
+	 font-size: 1em;
+}
+ .markdown-highlighting .h5 {
+	 font-size: 0.83em;
+}
+ .markdown-highlighting .h6 {
+	 font-size: 0.75em;
+}
+ .markdown-highlighting .cl-hash {
+	 color: rgba(0, 0, 0, 0.28);
+}
+ .app--dark .markdown-highlighting .cl-hash {
+	 color: rgba(255, 255, 255, 0.28);
+}
+ .markdown-highlighting .cl, .markdown-highlighting .hr {
+	 color: rgba(0, 0, 0, 0.28);
+	 font-style: normal;
+	 font-weight: 400;
+}
+ .app--dark .markdown-highlighting .cl, .app--dark .markdown-highlighting .hr {
+	 color: rgba(255, 255, 255, 0.28);
+}
+ .markdown-highlighting .em, .markdown-highlighting .em .cl {
+	 font-style: italic;
+}
+ .markdown-highlighting .strong, .markdown-highlighting .strong .cl, .markdown-highlighting .term {
+	 font-weight: 600;
+}
+ .markdown-highlighting .cl-del-text {
+	 text-decoration: line-through;
+}
+ .markdown-highlighting .cl-mark-text {
+	 background-color: #f8f840;
+	 color: #000;
+}
+ .markdown-highlighting .url, .markdown-highlighting .email, .markdown-highlighting .cl-underlined-text {
+	 text-decoration: underline;
+}
+ .markdown-highlighting .linkdef .url {
+	 color: rgba(0, 0, 0, 0.28);
+}
+ .app--dark .markdown-highlighting .linkdef .url {
+	 color: rgba(255, 255, 255, 0.28);
+}
+ .markdown-highlighting .fn, .markdown-highlighting .inlinefn, .markdown-highlighting .sup {
+	 font-size: smaller;
+	 position: relative;
+	 top: -0.5em;
+}
+ .markdown-highlighting .sub {
+	 bottom: -0.25em;
+	 font-size: smaller;
+	 position: relative;
+}
+ .markdown-highlighting .img, .markdown-highlighting .imgref, .markdown-highlighting .link, .markdown-highlighting .linkref {
+	 color: rgba(0, 0, 0, 0.28);
+}
+ .app--dark .markdown-highlighting .img, .app--dark .markdown-highlighting .imgref, .app--dark .markdown-highlighting .link, .app--dark .markdown-highlighting .linkref {
+	 color: rgba(255, 255, 255, 0.28);
+}
+ .markdown-highlighting .img .cl-underlined-text, .markdown-highlighting .imgref .cl-underlined-text, .markdown-highlighting .link .cl-underlined-text, .markdown-highlighting .linkref .cl-underlined-text {
+	 color: #000;
+}
+ .app--dark .markdown-highlighting .img .cl-underlined-text, .app--dark .markdown-highlighting .imgref .cl-underlined-text, .app--dark .markdown-highlighting .link .cl-underlined-text, .app--dark .markdown-highlighting .linkref .cl-underlined-text {
+	 color: #fff;
+}
+ .markdown-highlighting .cl-title {
+	 color: rgba(0, 0, 0, 0.8);
+}
+ .app--dark .markdown-highlighting .cl-title {
+	 color: rgba(255, 255, 255, 0.8);
+}
+ .markdown-highlighting--inline .h1, .markdown-highlighting--inline .h11, .markdown-highlighting--inline .h2, .markdown-highlighting--inline .h22, .markdown-highlighting--inline .h3, .markdown-highlighting--inline .h4, .markdown-highlighting--inline .h5, .markdown-highlighting--inline .h6, .markdown-highlighting--inline .cl-toc {
+	 font-size: inherit;
+}

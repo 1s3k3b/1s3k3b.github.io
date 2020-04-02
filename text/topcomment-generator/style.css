@@ -1,0 +1,33 @@
+body {
+    background-color: #232323;
+}
+
+input {
+    padding: 10px;
+    display: block;
+    box-sizing: border-box;
+    border: 0px;
+    margin-bottom: 7%;
+    margin-left: 1%;
+    margin-right: auto;
+    margin-top: 3%;
+    width: 100%;
+    background-color: #eeeeee;
+    color: #232323;
+}
+
+button {
+    background-color: #ffffff;
+    padding: 10px;
+    margin-left: 1%;
+    margin-right: auto;
+    border: 0px;
+    color: #232323;
+}
+
+textarea {
+    height: 85%;
+    width: 100%;
+    background-color: #eeeeee;
+    color: #232323;
+}
