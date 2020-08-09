@@ -1,0 +1,28 @@
+body {
+    background-color: #232323;
+    font-family: "Segoe UI", Arial;
+    color: white;
+}
+
+textarea {
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+}
+
+button {
+    background-color: white;
+    border: 0;
+}
+
+input {
+    border: 0;
+}
+
+#outp {
+    height: 45%;
+}
+
+#code {
+    height: 50%;
+}

@@ -9,14 +9,11 @@
         <meta property="og:description" content="Online JavaScript code evaluation">
     </head>
     <body>
-        <label>Await output if Promise:</label><input id="awaitr" type="checkbox" checked>
-        <label>Show information:</label><input id="showi" type="checkbox">
-        <input id="indent" placeholder="Indent size" value="2">
-        <input id="string" placeholder="String type (1 - single, 2 - double)" value="1">
+        <label>Inspect results:</label><input id="insp" type="checkbox" checked>
         <input id="depth" placeholder="stdout inspect depth" value="2">
         <button id="btn">Eval!</button>
         <button id="link">Generate link!</button>
-        <textarea id="inp" placeholder="Code">console.log("Hello, World!")</textarea>
+        <textarea id="inp" placeholder="Code">console.log('Hello, World!');</textarea>
         <textarea id="outp" readonly placeholder="stdout & stderr"></textarea>
     </body>
 </html>

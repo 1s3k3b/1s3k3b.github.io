@@ -2,12 +2,12 @@ class Point {
     constructor() {
         this.x = Math.floor(Math.random() * window.innerWidth);
         this.y = Math.floor(Math.random() * window.innerHeight);
-        this.size = Math.floor(Math.random() * 20) + 15;
+        this.size = Math.floor(Math.random() * 30) + 15;
     }
     render(ctx) {
-        ctx.fillStyle = "#ffffff";
+        ctx.fillStyle = '#ffffff';
         ctx.fillRect(this.x, this.y, this.size, this.size);
-        this.size--;
+        this.size -= 0.1;
     }
 }
 
@@ -15,18 +15,20 @@ const getel = id => document.getElementById(id);
 const wait = ms => new Promise(r => setTimeout(r, ms));
 const fixDpi = c => {
     const dpi = window.devicePixelRatio;
-    const height = +getComputedStyle(c).getPropertyValue("height").slice(0, -2);
-    const width = +getComputedStyle(c).getPropertyValue("width").slice(0, -2);
+    const height = +getComputedStyle(c).getPropertyValue('height')
+        .slice(0, -2);
+    const width = +getComputedStyle(c).getPropertyValue('width')
+        .slice(0, -2);
 
-    c.setAttribute("height", height * dpi);
-    c.setAttribute("width", width * dpi);
+    c.setAttribute('height', height * dpi);
+    c.setAttribute('width', width * dpi);
 };
 
-let assist = !!parseInt(new URLSearchParams(window.location.search).get("assist") || 0);
+const assist = !!parseInt(new URLSearchParams(window.location.search).get('assist') || 0);
 
 window.onload = () => {
-    const c = getel("c");
-    const ctx = c.getContext("2d");
+    const c = getel('c');
+    const ctx = c.getContext('2d');
     fixDpi(c);
 
     let points = [ new Point(), new Point() ];
@@ -38,32 +40,35 @@ window.onload = () => {
     const reactions = [0];
 
     setInterval(() => {
-        points.map((el, i) => [ el, i ]).filter(([ el ]) => !el.size).forEach(([, i ]) => {
-            misses++;
-            delete points[i];
-        });
+        points
+            .map((el, i) => [ el, i ])
+            .filter(([ el ]) => el.size <= 0)
+            .forEach(([, i ]) => {
+                misses++;
+                delete points[i];
+            });
         points = points.filter(Boolean);
 
-        ctx.fillStyle = "#232323";
+        ctx.fillStyle = '#232323';
         ctx.fillRect(0, 0, c.width, c.height);
         points.forEach(p => p.render(ctx));
         (() => {
             ctx.beginPath();
-            ctx.strokeStyle = "#ffffff";
+            ctx.strokeStyle = '#ffffff';
             ctx.lineWidth = 1;
             ctx.moveTo(mouse.x - 10, mouse.y);
             ctx.lineTo(mouse.x + 10, mouse.y);
             ctx.stroke();
 
             ctx.beginPath();
-            ctx.strokeStyle = "#ffffff";
+            ctx.strokeStyle = '#ffffff';
             ctx.lineWidth = 1;
             ctx.moveTo(mouse.x, mouse.y - 10);
             ctx.lineTo(mouse.x, mouse.y + 10);
-            ctx.stroke();            
+            ctx.stroke();
         })();
-        ctx.font = "15px Arial";
-        ctx.fillStyle = "#ffffff";
+        ctx.font = '15px Arial';
+        ctx.fillStyle = '#ffffff';
 
         let i = 1;
         for (const txt of `
@@ -74,12 +79,13 @@ window.onload = () => {
         Average reaction time: ${(reactions.reduce((a, v) => a + v, 0) / reactions.length).toFixed(2)}s
         Mouse X: ${mouse.x}px
         Mouse Y: ${mouse.y}px
-        `.trim().split("\n").map(x => x.trim())) ctx.fillText(txt, 5, 20 * i++);
+        `.trim().split('\n')
+            .map(x => x.trim())) ctx.fillText(txt, 5, 20 * i++);
 
-        if (Math.random() > 0.9 && points.length < 3) points.push(new Point());
-    }, 100);
+        if (Math.random() > 0.995 && points.length < 3) points.push(new Point());
+    }, 1);
 
-    window.addEventListener("mousedown", e => {
+    window.addEventListener('mousedown', e => {
         points = points.filter(Boolean);
         const found = points.map((el, i) => [ el, i ]).find(([ el ]) => (mouse.x > el.x && mouse.x < el.x + el.size) && (mouse.y > el.y && mouse.y < el.y + el.size));
         if (!found) return misses++;
@@ -89,7 +95,7 @@ window.onload = () => {
         reactions.push(latestReaction);
         delete points[found[1]];
     });
-    window.addEventListener("mousemove", async e => {
+    window.addEventListener('mousemove', async e => {
         mouse.x = e.pageX;
         mouse.y = e.pageY;
 
@@ -104,8 +110,8 @@ window.onload = () => {
             if (Math.abs(sorted[0].y - mouse.y) < 20) mouse.y = sorted[0].y + sorted[0].size / 2;
         }
     });
-    window.addEventListener("keydown", e => {
-        if (e.key === "Alt" && assist && points.length) {
+    window.addEventListener('keydown', e => {
+        if (e.key === 'Alt' && assist && points.length) {
             const rand = points[Math.floor(Math.random() * points.length)];
             mouse.x = rand.x + rand.size / 2;
             mouse.y = rand.y + rand.size / 2;

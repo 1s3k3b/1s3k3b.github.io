@@ -1,0 +1,149 @@
+<style>
+    pre {
+        display: inline;
+        color: white;
+        background-color: #777777;
+    }
+    code {
+        color: white;
+        background-color: #777777;
+        display: block;
+    }
+    a {
+        color: black;
+    }
+</style>
+
+FRHD Lang is a simple language to generate tracks.
+<br>
+It's indentation based, meaning you need to increase the amount of spaces you add before a line inside a statement.
+<br>
+There must be a new line after each statement.
+<br>
+The <a href="./index.html">playground</a> has presets for more advanced examples.
+<br><br><br>
+
+<pre>var</pre> Statement
+<br>
+This statement declares a variable under the given name, which can be used later in code.
+Some built in variables: <pre>x</pre>, <pre>y</pre>, <pre>random(a, b)</pre>
+<br>
+Usage: <pre>var &lt;name&gt; &lt;expression&gt;</pre>
+<br>
+<pre>&lt;name&gt;</pre> can be any text starting with a letter or an underscore, and only including numbers, letters, or underscores later.
+<br>
+<pre>&lt;expression&gt;</pre> can be a number, variable, or a function call.
+<br>
+Example:
+<pre><code>var someName 2000</code></pre>
+<br><br>
+
+<pre>increment</pre> Statement
+<br>
+This statement increases a variable by a given amount.
+<br>
+Usage: <pre>increment &lt;name&gt; &lt;expression&gt;</pre>
+<br>
+<pre>&lt;name&gt;</pre> can be any text starting with a letter or an underscore, and only including numbers, letters, or underscores later.
+<br>
+<pre>&lt;expression&gt;</pre> can be a number, variable, or a function call.
+<br>
+Example:
+<pre><code>increment someName 2000</code></pre>
+<br><br>
+
+<pre>decrement</pre> Statement
+<br>
+This statement decreases a variable by a given amount.
+<br>
+Usage: <pre>decrement &lt;name&gt; &lt;expression&gt;</pre>
+<br>
+<pre>&lt;name&gt;</pre> can be any text starting with a letter or an underscore, and only including numbers, letters, or underscores later.
+<br>
+<pre>&lt;expression&gt;</pre> can be a number, variable, or a function call.
+<br>
+Example:
+<pre><code>decrement someName 2000</code></pre>
+<br><br>
+
+<pre>physics</pre> Statement
+<br>
+This statement adds a physics line to the track.
+<br>
+Usage: <pre>physics &lt;x&gt; &lt;y&gt; &lt;x2&gt; &lt;y2&gt;</pre>
+<br>
+All arguments can be any expression evaluating to a number.
+<br>
+Example:
+<pre><code>physics x y x+2 y+2</code></pre>
+<br><br>
+
+<pre>scenery</pre> Statement
+<br>
+This statement adds a scenery line to the track.
+<br>
+Usage: <pre>scenery &lt;x&gt; &lt;y&gt; &lt;x2&gt; &lt;y2&gt;</pre>
+<br>
+All arguments can be any expression evaluating to a number.
+<br>
+Example:
+<pre><code>scenery x y x+2 y+2</code></pre>
+<br><br>
+
+<pre>powerup</pre> Statement
+<br>
+Temporary bad solution, undocumented.
+<br><br>
+
+<pre>repeat</pre> Statement
+<br>
+This statement repeats the indentation block a given amount of times.
+<br>
+Usage: <pre>repeat &lt;expression&gt;</pre>
+<br>
+<pre>&lt;expression&gt;</pre> can be a number, variable, or a function call.
+<br>
+Example:
+<pre><code>repeat 100
+  var example 42
+</code></pre>
+Notice how it requires indentation. (spaces before <pre>var example 42</pre>)
+<br><br>
+
+<pre>if</pre> Statement
+<br>
+This statement executes the indentation block if the given condition is true or truthy.
+<br>
+Usage: <pre>if &lt;condition&gt;</pre>
+<br>
+<pre>&lt;condition&gt;</pre> can be any expression.
+<br>
+Example:
+<pre><code>if x > 100
+  var example 42
+</code></pre>
+Notice how it requires indentation. (spaces before <pre>var example 42</pre>)
+<br><br>
+
+<pre>while</pre> Statement
+<br>
+This statement executes the indentation block while the given condition is true or truthy.
+<br>
+Usage: <pre>while &lt;condition&gt;</pre>
+<br>
+<pre>&lt;condition&gt;</pre> can be any expression.
+<br>
+Example:
+<pre><code>while x > 100
+  var example 42
+</code></pre>
+Notice how it requires indentation. (spaces before <pre>var example 42</pre>)
+<br><br>
+
+<pre>javascript</pre> Statement
+<br>
+This statement executes the given indentation block in JavaScript.
+<br>
+Example: <pre><code>javascript
+  alert('Cool, huh?');
+</code></pre>

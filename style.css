@@ -1,0 +1,18 @@
+body {
+    font-family: Roboto, "Segoe UI", Arial;
+    font-weight: 200;
+    background-color: #323232;
+}
+
+.name {
+    font-weight: 100;
+    text-align: center;
+}
+
+a, p, h1, h3 {
+    color: white;
+}
+
+p a {
+    font-weight: 300;
+}
