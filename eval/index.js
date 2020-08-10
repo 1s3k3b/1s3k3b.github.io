@@ -45,7 +45,6 @@ const evalStr = async (str, depth, insp) => {
         console.info = consoleFn;
         console.warn = consoleFn;
         console.error = consoleFn;
-        if (console[i] === consoleFn) WebAuthentication();
     })();
 
     try {
