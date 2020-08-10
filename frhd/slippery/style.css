@@ -1,0 +1,20 @@
+body {
+    background-color: #232323;
+    font-family: "Segoe UI", Arial;
+    color: white;
+}
+
+button {
+    background-color: white;
+    border: 0;
+}
+
+input {
+    border: 0;
+}
+
+textarea {
+    margin-top: 0.5%;
+    height: 48%;
+    width: 100%;
+}

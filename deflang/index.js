@@ -386,7 +386,8 @@ window.onload = () => {
         let res;
         try {
             res = parse(code.value);
-        } catch (e) {
+        }
+        catch (e) {
             res = `${e.name}: ${e.message}`;
         }
         outp.value = res;
