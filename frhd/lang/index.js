@@ -271,6 +271,64 @@ physics 0 len*10 len*10 len*10
 repeat len 
   physics len*10 i*10 (len-i)*10 len*10
     `,
+    `var count 20
+var space1 10
+var space2 500
+var rectS 20
+
+repeat count
+  var x i - count / 2
+  var j i
+  repeat count
+    var y i - count / 2
+    var _x x*space1
+    var _y y*space1
+    var _x2 x*space2
+    var _y2 y*space2
+    scenery _x _y _x+rectS _y
+    scenery _x _y+rectS _x+rectS _y+rectS
+    scenery _x+rectS _y _x+rectS _y+rectS
+    scenery _x _y _x _y+rectS 
+    scenery _x2 _y2 _x2+rectS _y2 
+    scenery _x2 _y2+rectS _x2+rectS _y2+rectS
+    scenery _x2+rectS _y2 _x2+rectS _y2+rectS
+    scenery _x2 _y2 _x2 _y2+rectS 
+    scenery _x _y _x2 _y2
+    scenery _x _y+rectS _x2 _y2+rectS
+    scenery _x+rectS _y+rectS _x2+rectS _y2+rectS
+    scenery _x+rectS _y _x2+rectS _y2`,
+    `var width 200
+var height 5
+var tileS 50
+var grassMin 2
+var grassHeight 15
+var increaseChance 0.4
+var decreaseChance 0.7
+var fillChance 0.97
+
+decrement x 1
+increment y 50
+
+repeat tileS
+  physics (i+x)*tileS y (i+x)*tileS+tileS y
+  physics (i+x)*tileS y+tileS (i+x)*tileS+tileS y+tileS
+  physics (i+x)*tileS+tileS y (i+x)*tileS+tileS y+tileS
+  physics (i+x)*tileS y (i+x)*tileS y+tileS
+  var j i
+  repeat tileS
+    scenery (j+x)*tileS+i y (j+x)*tileS+i y+random(grassMin,grassHeight)
+  repeat height
+    physics (j+x)*tileS y+i*tileS (j+x)*tileS+tileS y+i*tileS
+    physics (j+x)*tileS y+tileS+i*tileS (j+x)*tileS+tileS y+tileS+i*tileS
+    physics (j+x)*tileS+tileS y+i*tileS (j+x)*tileS+tileS y+tileS+i*tileS
+    physics (j+x)*tileS y+i*tileS (j+x)*tileS y+tileS+i*tileS
+    var k i
+    repeat tileS
+      var l i
+      repeat tileS
+        if Math.random() > fillChance
+          scenery (j+x)*tileS+l y+k*tileS+i (j+x)*tileS+l+2 y+k*tileS+i+2
+  increment y Math.random() > increaseChance ? tileS : Math.random() > decreaseChance ? -tileS : 0`
 ];
 const getel = id => document.getElementById(id);
 
