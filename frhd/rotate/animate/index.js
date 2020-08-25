@@ -165,65 +165,79 @@ class Parser {
     }
 }
 
-const f = (c, dX, dY) => {
-    const powerups = {
-        O: '#-c 3 -8 4 -5 7 -6 b,-6 c -2 9 2 9 6 c 6 7 8 4 d 4 9 1 9 -2 8 -4 b -8 6 -7 2 -8 0 -d -2 -9 -5 -7 -b -9 -9 -3 -9 0 -d 3,-4 a 8 -6 -2 3,-4 9 0 -b 5 9 -b 2 b 3 -a -8 5 a,1 7 -5 5 0 8,1 6 -6 3,0 5 -6 -3,-6 -4 0 2,-1 1 -4 -5 2 -5,-1 -a -7 1,1 -6 -6 -6,0 -6 6 -6,7 -6 -2 4,-8 1 -8 -5 -4 2 -7 -3,4 -3 1 3,-8 1 -3 1,0 -4 0 4 6 2 6 -4,0 4 1 -6,2 -2 1 1,3 -7 3 -1,4 -5 4 -1,5 -4 5 4,6 -3 6 0,7 -5 8 0,3 6 8 4,1 5 -2 5,4 4 0 7 5 3#',
-        T: '#-7 9 -6 2 -c -4 -5 -5 0 -d 4 -5 b -4 6 2 7 a 0 6 -6 9,-5 -5 0 -a 6 8 -8 -3 9 -3 -6 8 5 -2 -1 -b -6 7 0 -2,-a -3 9 -4,-9 -2 2 5,5 5 -1 -8 -3 2 1 -2,2 -2 -3 3,6 -1 4 4,4 6 -1 -4,-6 -1 -3 -6,-7 a 0 6#',
-        A: '#-c -2 -b -4 -a -7 -7 -a -4 -b -2 -c,2 -c 4 -b 7 -a a -7 b -4 c -2,-6 -1 -5 -4,-4 -5 -1 -6,1 -6 4 -5,5 -4 6 -1,-6 1 -5 4,-4 5 -1 6,1 6 4 5,5 4 6 1,c 2 b 4 a 7 7 a 4 b 2 c 2 8 4 7 7 4 8 2 c 2,-2 c -4 b -7 a -a 7 -b 4 -c 2 -8 2 -7 4 -4 7 -2 8 -2 c,-c -2 -8 -2 -7 -4 -4 -7 -2 -8 -2 -c,2 -8 2 -c,2 -8 4 -7 7 -4 8 -2 c -2,-a 3 -8 7 -3 a -7 9 -a 3,-9 3 -6 7 -3 9 -a 3,-b 2 -6 8,-a -3 -7 -8,-9 -6 -2 -a,-3 -a -7 -8,-3 -b -7 -6,-9 -2 -5 -8 -b -2,3 -a 9 -6 b -2 9 -2 5 -9 9 -3,9 -4 3 -a 8 -8,3 -b 7 -7,a 3 6 9 a 5,9 3 3 9,3 a 9 5,6 7 5 a,-3 4 -5 0 -3 -4 1 -5,1 -4 4 -2 3 3 -3 -1 4 -3 2 -5 -3 -2 2 2 3 -2 -1 2 1 -3,-3 0 -1 5 3 4 5 -1,0 0 0 4,-1 3 2 3#',
-        C: '#6 -2 6 -e,-a c -a -e -7 -d -4 -d,-3 -d 0 -e 3 -f 5 -e,6 -2 4 -3 0 -3 -2 -2,-4 -1 -6 -1 -8 -2 -9 -5,-4 -1 -2 -2,5 -4 5 -d,2 -c -9 -6,-8 -6 4 -4,4 -8 4 -d -7 -c -4 -2,-7 -c 3 -9 3 -c -7 -6 4 -5 2 -9 -6 -7 -7 -c,-6 -7 3 -7 -2 -c -9 -7 -9 -d -6 -7,-9 -4 -6 -2 1 -4 -8 -4 -9 -6#',
-        S: '#0 0 4 0,0 0 -4 -6,0 -8 0 -a -2 -a -6 -9 -9 -6 -a -2 -a 0 -a 2 -9 6 -6 9 -2 a 0 a 2 a 6 9 9 6 a 2 a 0 a -2 9 -6 6 -9 2 -a 0 -a,8 0 a 0,0 8 0 a,-8 0 -a 0,0 8 0 6,0 -8 0 -6,-6 0 -8 0,8 0 6 0,-2 b 2 b 6 a a 7 b 2 b -2 a -7 7 -a -6 -a 8 -a,-7 -a -a -7 -a 6,-b -8 -b 7 -8 9 -2 b,-b -8 -9 -b 8 -b a -8#',
-        G: '#-6 a -6 2 -a 2 -1 -9,-6 a 4 a,3 a 5 a 5 2 9 2 0 -9,-7 1 7 1 -1 -8 -6 0 6 0 -1 -6 -8 1 1 -4 -5 a 1 2 4 9 -5 9 2 4 2 8 -2 8 3 4,-1 -6 -4 7,3 8 3 1,3 2 -2 a,-1 6 1 -7,1 -6 4 3 0 -5,-6 8 -3 -4,-1 0 5 0 -1 -1,0 1 5 0,4 1 -1 -3,0 0 6 -1#',
-        B: '#0 -c -8 -6,0 -c 8 -6 8 2 0 -4 -8 2 -8 -6,-8 c 0 6 8 c 8 4 0 -2 -8 4 -8 c#',
-        W: p =>
-            [[p.x, p.y], [p.x2, p.y2]]
-                .flatMap(([x, y]) =>
-                    parser.parse(
-                        parser
-                            .parse('#4 e -2 a,-1 a 5 a 7 9 a 7 c 4 d 0 d -4 b -9 9 -c 5 -e 1 -f -5 -f -8 -f -1 -d 1 -c -5 -c -9 -a -c -6 -e -1 -d 4 -b 9,-a a -7 d -1 f 4 e,-6 8 -9 2 -9 -3 -7 -5 -4 -7,-3 -7 0 -7,1 -7 3 -6 5 -3 5 0,5 1 3 2 0 3,2 2 -1 2 -2 0,4 -3 3 0,4 -4 2 -6 0 -7,7 -8 9 -4 8 1 6 4,6 5 3 6 -2 6 -4 4 -5 0 -3 -3 0 -3 1 -1 -1 -3,1 -1 2 1 -1 0 -1 -2 1 3,-3 0 -2 -2,-5 -1 -3 -3#')
-                            .move(x + dX, y + dY)).scenery,
-                ),
-        V: p =>
-            parser.parse(
-                parser
-                    .parse(
-                        [
-                            '#-a -5 4 -5 3 -8 1 -a -2 -b -4 -b -7 -a -9 -8 -a -5,-e -5 -e -3 -d 1 -a 4 -6 6 -4 7 -1 7 2 6 5 c,-1 7 3 5 6 2 8 -2 8 -4 8 -6 6 -a 3 -d -1 -f -3 -f -3 -l c -l -h -l,-3 -f -5 -f -8 -e -b -b -d -8 -e -6,-8 -7 2 -7,-8 -6 3 -6 0 -9,1 -8 -7 -8 1 -9 -6 -9,4 4 7 0,4 4 0 7,-b c -8 5#',
-                            '#-e 0 7 0 7 3 7 -a 7 -f 2 -f,7 3 3 3 7 3,3 3 3 -3 -e -3 -e 4 -b 4,-e 4 -c 4,-b 3 -b -2,-c -2 -c 3,-3 0 6 0,3 0 3 3,3 4 7 4 7 2 4 2 4 -2 7 -2 6 1 5 -2,-e -4 -e -e,-a -c 2 -c 2 -e -a -e -a -c,-b -7 -9 -7,3 -7 1 -7,6 -f -e -f,-e -d -e -f,-e -2 -e -6,2 -3 7 -3 7 2,3 4 3 2,-b 1 -b 4,-a 1 3 1#',
-                            '#-a -5 -a -7 -8 -a -6 -d -3 -e -1 -e 1 -e 5 -d 7 -a 9 -7 9 -5 9 -3 7 0 5 3 2 4 0 5 -2 5 -6 3 -8 1 -a -3 -a -5,-5 4 -2 b 1 b -2 9,4 3 1 b,-4 8 3 8 3 e -4 e -4 8,-3 d -3 9 2 9 2 d -2 d -2 b#',
-                            '#-e 0 -4 0 -d -a 7 -b -7 -l -d -f -e -6 -a -b -d -7 -9 -e -b -7 -9 -c -c -6 -8 -e -c -b -c -g -9 -m -d -g -a -k -1 -k 5 -l 2 -h -2 -e -4 -8 -4 -5,-4 0 8 0 -3 -l 7 -i 2 -l,8 0 8 -g 8 -m -e 0 -e -m 8 0,8 -m -e -m,-3 -l -4 0,-d -f 1 0 2 -m -d -4 5 -1 7 -g -d -c -3 -l,-9 -7 -7 -6,-3 -3 -1 -8 -5 -1 1 -8 -1 -3 4 -6 -3 -1 1 -5 6 -7 8 -2,-1 -8 -3 -3 1 -9 -2 -4 -3 -9 -5 -3 -1 -8,6 -7 2 -3 -2 0 5 -5 0 -2 6 -3 1 -1 -8 -1 -c 0 -7 -4 -c -1 -6 -6 -7 -1 -3 -8 2 -e 1 -7 6 -e 3 -6 7 -c 6 -7,1 -1 6 -1 1 -1,6 -1 8 -1,-3 -8 -7 -3 0 -9 -7 -5 -d -2 -7 -c -8 -6 -3 -e -8 -e -4 -h -8 -e -b -a -c -g -8 -k -b -f -4 -l -7 -g -2 -k -5 -f -1 -j -7 -d 2 -j -3 -d 1 -i -3 -e -5 -9 -8 -5 0 -c -3 -8,3 -6 6 -d 3 -6,4 -c 5 -h 2 -8 4 -d 7 -h 4 -l 0 -l,7 -h 5 -c 7 -h,5 -k 8 -k,-1 -k -6 -k -b -l,-d -k -d -f,-b -7 -9 -c -b -7,-b -f -8 -j -b -f,2 -j -3 -g -6 -c -2 -g 2 -j#',
-                        ][p.vehicleTypeRaw - 1],
-                    )
-                    .move(p.x + dX, p.y + dY),
-            ).scenery,
-    };
+const f = (code, deg) => {
     const parser = new Parser();
-    const parsed = parser.parse(c);
-    const moved = parser.parse(parsed.move(dX, dY));
-    const res = [...moved.physics];
-    for (const p of parsed.powerups) {
-        const d = powerups[p.powerupTypeRaw];
-        if (typeof d === 'string') res.push(...parser.parse(parser.parse(d).move(p.x + dX, p.y + dY)).scenery);
-        if (typeof d === 'function') res.push(...d(p));
+    const parsed = parser.parse(code);
+    const theta = deg * Math.PI / 360;
+    const ct = Math.cos(theta);
+    const st = Math.sin(theta);
+    const move = (x, y) => [ct * x - st * ct * y + st + st, st * x + ct * ct * y - ct * st];
+    const mapLine = l => {
+        if (l.curve) {l.coords = l.coords.map(([x, y]) => move(x, y));}
+        else {
+            const [x1, y1] = move(l.x, l.y);
+            const [x2, y2] = move(l.x2, l.y2);
+            l.x = x1;
+            l.y = y1;
+            l.x2 = x2;
+            l.y2 = y2;
+        }
+        return l;
+    };
+    return parser.toCode({
+        physics: parsed.physics.map(mapLine),
+        scenery: parsed.scenery.map(mapLine),
+        powerups: parsed.powerups.map(x => {
+            const [x1, y1] = move(x.x, x.y);
+            x.x = x1;
+            x.y = y1;
+            if (!isNaN(x.deg)) x.deg += deg / 2;
+            if (!isNaN(x.x2)) {
+                const [x2, y2] = move(x.x2, x.y2);
+                x.x2 = x2;
+                x.y2 = y2;
+            }
+            return x;
+        }),
+    });
+};
+const animate = (code, n, d, diff) => {
+    const parser = new Parser();
+    const physics = [];
+    const scenery = [];
+    const powerups = [];
+    let deg = 0;
+    for (let i = 0; i <= n; i++) {
+        const parsed = parser.parse(parser.parse(f(code, deg)).move(i * diff, 0));
+        scenery.push(...parsed.scenery);
+        (i && i !== n ? scenery : physics).push(...parsed.physics);
+        powerups.push(...parsed.powerups.filter(x => i === n ? true : x.powerupTypeRaw !== 'T'));
+        if (i !== n) {
+            physics.push({ x: i * diff - 40, y: 50, x2: i * diff + 40, y2: 50 });
+            powerups.push({ powerupTypeRaw: 'W', x: i * diff, y: 0, x2: (i + 1) * diff, y2: 0 });
+        }
+        deg += d;
     }
-    return parser.toCode({ ...parsed, scenery: [...parsed.scenery, ...res] });
+    return parser.toCode({ physics, scenery, powerups });
 };
 
 const getel = id => document.getElementById(id);
 
 window.onload = () => {
     const inp = getel('inp');
-    const x = getel('x');
-    const y = getel('y');
+    const frms = getel('frms');
+    const deg = getel('deg');
+    const diff = getel('diff');
     const outp = getel('outp');
     const btn = getel('btn');
     const down = getel('down');
 
     btn.onclick = () => {
-        outp.value = f(inp.value, isNaN(+x.value) ? 30 : +x.value, isNaN(+y.value) ? 30 : +y.value);
+        outp.value = animate(inp.value, isNaN(+frms.value) ? 100 : +frms.value, isNaN(+deg.value) ? 7.2 : +deg.value, isNaN(+diff.value) ? 2000 : +diff.value);
     };
     down.onclick = () => {
         const d = outp.value;
         if (!d) return;
-        saveAs(new Blob([ d ], { type: 'text/plain' }), 'frhd-shadow.txt');
+        saveAs(new Blob([ d ], { type: 'text/plain' }), 'frhd-rotated.txt');
     };
 };

@@ -18,19 +18,19 @@
         else{const l = f.URL || f.webkitURL, m = l.createObjectURL(b);g ? g.location = m : location.href = m, g = null, setTimeout(function() {l.revokeObjectURL(m);}, 4E4);}
     });f.saveAs = g.saveAs = g, typeof module != 'undefined' && (module.exports = g);
 });
-var Types;
-(function (Types) {
-    Types[Types["PHYSICS"] = 0] = "PHYSICS";
-    Types[Types["SCENERY"] = 1] = "SCENERY";
-    Types[Types["POWERUP"] = 2] = "POWERUP";
-    Types[Types["VEHICLE_POWERUP"] = 3] = "VEHICLE_POWERUP";
+let Types;
+(function(Types) {
+    Types[Types['PHYSICS'] = 0] = 'PHYSICS';
+    Types[Types['SCENERY'] = 1] = 'SCENERY';
+    Types[Types['POWERUP'] = 2] = 'POWERUP';
+    Types[Types['VEHICLE_POWERUP'] = 3] = 'VEHICLE_POWERUP';
 })(Types = Types || (Types = {}));
-var Vehicles;
-(function (Vehicles) {
-    Vehicles[Vehicles["HELI"] = 0] = "HELI";
-    Vehicles[Vehicles["TRUCK"] = 1] = "TRUCK";
-    Vehicles[Vehicles["BALLOON"] = 2] = "BALLOON";
-    Vehicles[Vehicles["BLOB"] = 3] = "BLOB";
+let Vehicles;
+(function(Vehicles) {
+    Vehicles[Vehicles['HELI'] = 0] = 'HELI';
+    Vehicles[Vehicles['TRUCK'] = 1] = 'TRUCK';
+    Vehicles[Vehicles['BALLOON'] = 2] = 'BALLOON';
+    Vehicles[Vehicles['BLOB'] = 3] = 'BLOB';
 })(Vehicles = Vehicles || (Vehicles = {}));
 powerupTypes = {
     'T': 'star',
@@ -44,12 +44,10 @@ powerupTypes = {
     'V': 'vehicle',
 };
 const paginate = (a, n) => {
-    if (a.length <= n)
-        return [a];
+    if (a.length <= n) {return [a];}
     const res = [];
     const maxLen = Math.ceil(a.length / n);
-    for (let i = 0; i < maxLen; i++)
-        res[i] = a.slice(i * n, (i + 1) * n);
+    for (let i = 0; i < maxLen; i++) {res[i] = a.slice(i * n, (i + 1) * n);}
     return res;
 };
 class Parsed {
@@ -62,8 +60,7 @@ class Parsed {
     }
     move(x = 0, y = 0) {
         const mapLine = (l) => {
-            if (l.curve)
-                l.coords = l.coords.map(([dX, dY]) => [x + dX, y + dY]);
+            if (l.curve) {l.coords = l.coords.map(([dX, dY]) => [x + dX, y + dY]);}
             else {
                 l.x += x;
                 l.y += y;
@@ -115,21 +112,19 @@ class Parser {
                 for (const [x, y, x2, y2, ...coords] of section
                     .split(',')
                     .map(x => x
-                    .split(' ')
-                    .map(this._decodePos))) {
+                        .split(' ')
+                        .map(this._decodePos))) {
                     // @ts-ignore
-                    if (x || x === 0)
-                        (i ? scenery : physics).push(coords.length ? { type: i, curve: true, coords: [[x, y], [x2, y2], ...paginate(coords, 2)] } : { type: i, x, y, x2, y2 });
+                    if (x || x === 0) {(i ? scenery : physics).push(coords.length ? { type: i, curve: true, coords: [[x, y], [x2, y2], ...paginate(coords, 2)] } : { type: i, x, y, x2, y2 });}
                 }
                 continue;
             }
             for (const [t, x, y, x2degT, y2] of section
                 .split(',')
                 .map(x => x
-                .split(' ')
-                .map((y, i) => (i && i !== 3) ? this._decodePos(y) : y))) {
-                if (!t)
-                    break;
+                    .split(' ')
+                    .map((y, i) => (i && i !== 3) ? this._decodePos(y) : y))) {
+                if (!t) {break;}
                 const o = {
                     type: 2,
                     powerupTypeRaw: t,
@@ -137,8 +132,7 @@ class Parser {
                     x: x,
                     y: y,
                 };
-                if (['B', 'G'].includes(t))
-                    o.deg = this._decodePos(x2degT);
+                if (['B', 'G'].includes(t)) {o.deg = this._decodePos(x2degT);}
                 if (t === 'W') {
                     o.x2 = parseInt(x2degT, 32);
                     o.y2 = y2;
@@ -156,7 +150,7 @@ class Parser {
     toCode({ physics, scenery, powerups }) {
         const mapLine = (o) => (o.curve
             ? o.coords.map(([x, y]) => this._encodePos(x) + ' ' + this._encodePos(y))
-            : [o.x ?? 0, o.y ?? 0, o.x2 ?? 0, o.y2 ?? 0].map(x => this._encodePos(x))).join(' ');
+            : [o.x || 0, o.y || 0, o.x2 || 0, o.y2 || 0].map(x => this._encodePos(x))).join(' ');
         return `${physics
             .map(mapLine)
             .join(',')}#${scenery
@@ -186,7 +180,7 @@ const f = (c, dX, dY) => {
                     parser.parse(
                         parser
                             .parse('#4 e -2 a,-1 a 5 a 7 9 a 7 c 4 d 0 d -4 b -9 9 -c 5 -e 1 -f -5 -f -8 -f -1 -d 1 -c -5 -c -9 -a -c -6 -e -1 -d 4 -b 9,-a a -7 d -1 f 4 e,-6 8 -9 2 -9 -3 -7 -5 -4 -7,-3 -7 0 -7,1 -7 3 -6 5 -3 5 0,5 1 3 2 0 3,2 2 -1 2 -2 0,4 -3 3 0,4 -4 2 -6 0 -7,7 -8 9 -4 8 1 6 4,6 5 3 6 -2 6 -4 4 -5 0 -3 -3 0 -3 1 -1 -1 -3,1 -1 2 1 -1 0 -1 -2 1 3,-3 0 -2 -2,-5 -1 -3 -3#')
-                            .move(x + dX, y + dY)).scenery
+                            .move(x + dX, y + dY)).scenery,
                 ),
         V: p =>
             parser.parse(
@@ -197,9 +191,9 @@ const f = (c, dX, dY) => {
                             '#-e 0 7 0 7 3 7 -a 7 -f 2 -f,7 3 3 3 7 3,3 3 3 -3 -e -3 -e 4 -b 4,-e 4 -c 4,-b 3 -b -2,-c -2 -c 3,-3 0 6 0,3 0 3 3,3 4 7 4 7 2 4 2 4 -2 7 -2 6 1 5 -2,-e -4 -e -e,-a -c 2 -c 2 -e -a -e -a -c,-b -7 -9 -7,3 -7 1 -7,6 -f -e -f,-e -d -e -f,-e -2 -e -6,2 -3 7 -3 7 2,3 4 3 2,-b 1 -b 4,-a 1 3 1#',
                             '#-a -5 -a -7 -8 -a -6 -d -3 -e -1 -e 1 -e 5 -d 7 -a 9 -7 9 -5 9 -3 7 0 5 3 2 4 0 5 -2 5 -6 3 -8 1 -a -3 -a -5,-5 4 -2 b 1 b -2 9,4 3 1 b,-4 8 3 8 3 e -4 e -4 8,-3 d -3 9 2 9 2 d -2 d -2 b#',
                             '#-e 0 -4 0 -d -a 7 -b -7 -l -d -f -e -6 -a -b -d -7 -9 -e -b -7 -9 -c -c -6 -8 -e -c -b -c -g -9 -m -d -g -a -k -1 -k 5 -l 2 -h -2 -e -4 -8 -4 -5,-4 0 8 0 -3 -l 7 -i 2 -l,8 0 8 -g 8 -m -e 0 -e -m 8 0,8 -m -e -m,-3 -l -4 0,-d -f 1 0 2 -m -d -4 5 -1 7 -g -d -c -3 -l,-9 -7 -7 -6,-3 -3 -1 -8 -5 -1 1 -8 -1 -3 4 -6 -3 -1 1 -5 6 -7 8 -2,-1 -8 -3 -3 1 -9 -2 -4 -3 -9 -5 -3 -1 -8,6 -7 2 -3 -2 0 5 -5 0 -2 6 -3 1 -1 -8 -1 -c 0 -7 -4 -c -1 -6 -6 -7 -1 -3 -8 2 -e 1 -7 6 -e 3 -6 7 -c 6 -7,1 -1 6 -1 1 -1,6 -1 8 -1,-3 -8 -7 -3 0 -9 -7 -5 -d -2 -7 -c -8 -6 -3 -e -8 -e -4 -h -8 -e -b -a -c -g -8 -k -b -f -4 -l -7 -g -2 -k -5 -f -1 -j -7 -d 2 -j -3 -d 1 -i -3 -e -5 -9 -8 -5 0 -c -3 -8,3 -6 6 -d 3 -6,4 -c 5 -h 2 -8 4 -d 7 -h 4 -l 0 -l,7 -h 5 -c 7 -h,5 -k 8 -k,-1 -k -6 -k -b -l,-d -k -d -f,-b -7 -9 -c -b -7,-b -f -8 -j -b -f,2 -j -3 -g -6 -c -2 -g 2 -j#',
-                        ][p.vehicleTypeRaw - 1]
+                        ][p.vehicleTypeRaw - 1],
                     )
-                    .move(p.x + dX, p.y + dY)
+                    .move(p.x + dX, p.y + dY),
             ).scenery,
     };
     const parser = new Parser();
