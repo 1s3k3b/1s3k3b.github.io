@@ -168,10 +168,10 @@ class Parser {
 const f = (code, deg) => {
     const parser = new Parser();
     const parsed = parser.parse(code);
-    const theta = deg * Math.PI / 360;
+    const theta = deg * Math.PI / 180;
     const ct = Math.cos(theta);
     const st = Math.sin(theta);
-    const move = (x, y) => [ct * x - st * ct * y + st + st, st * x + ct * ct * y - ct * st];
+    const move = (x, y) => [ct * x - st * y, ct * y + st * x];
     const mapLine = l => {
         if (l.curve) {l.coords = l.coords.map(([x, y]) => move(x, y));}
         else {
