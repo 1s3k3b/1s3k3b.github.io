@@ -191,7 +191,7 @@ const f = (code, deg) => {
             const [x1, y1] = move(x.x, x.y);
             x.x = x1;
             x.y = y1;
-            if (!isNaN(x.deg)) x.deg += deg / 2;
+            if (!isNaN(x.deg)) x.deg += deg;
             if (!isNaN(x.x2)) {
                 const [x2, y2] = move(x.x2, x.y2);
                 x.x2 = x2;
