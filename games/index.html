@@ -7,7 +7,7 @@
                 .then(x =>
                     get(x.tree.find(x => x.path === 'games').url)
                         .then(d => d.tree
-                            .filter(x => x !== 'index.html')
+                            .filter(x => x.path !== 'index.html')
                             .forEach(d => {
                                 document.body.innerHTML += `<p><a href="./${d.path}">${d.path.split('-').map(x => `${x[0].toUpperCase()}${x.slice(1)}`).join(' ')}</a></p>`;
                             })
