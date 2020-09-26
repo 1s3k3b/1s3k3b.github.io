@@ -44,8 +44,8 @@ window.onload = () => {
     };
     fileInp.onchange = () => {
         const reader = new FileReader();
-		reader.readAsDataURL(fileInp.files[0]);
-		reader.onload = x => load(x.target.result);
+        reader.readAsDataURL(fileInp.files[0]);
+        reader.onload = x => load(x.target.result);
     };
     btn.onclick = () => load(urlInp.value);
 };

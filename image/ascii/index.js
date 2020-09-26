@@ -20,14 +20,14 @@
 });
 
 // '     '
-const chars = ['  ', 'ˇˇ', '..', ',,', '--',  '^^', '**', '~~', '__', '::', ';;', '<<', '>>', '==', '//', '||', '??', '&&', '$$', '@@', '##'];
+const chars = ['  ', 'ˇˇ', '..', ',,', '--', '^^', '**', '~~', '__', '::', ';;', '<<', '>>', '==', '//', '||', '??', '&&', '$$', '@@', '##'];
 const colors = Array.from({ length: chars.length }, (_, i) => [~~(255 / chars.length) * i, ~~(255 / chars.length) * i, ~~(255 / chars.length) * i]);
 
 const getClosestColor = ([ r, g, b ]) => {
     let res = 0;
     let biggestDifference = 1000;
     for (let i = 0; i < colors.length; i++) {
-        const x = Math.sqrt(Math.pow(r - colors[i][0], 2) + Math.pow(g - colors[i][1], 2) + Math.pow(b - colors[i][2], 2))
+        const x = Math.sqrt(Math.pow(r - colors[i][0], 2) + Math.pow(g - colors[i][1], 2) + Math.pow(b - colors[i][2], 2));
         if (x < biggestDifference) {
             res = i;
             biggestDifference = x;
@@ -66,8 +66,8 @@ window.onload = () => {
     };
     fileInp.onchange = () => {
         const reader = new FileReader();
-		reader.readAsDataURL(fileInp.files[0]);
-		reader.onload = x => load(x.target.result);
+        reader.readAsDataURL(fileInp.files[0]);
+        reader.onload = x => load(x.target.result);
     };
     btn.onclick = () => load(urlInp.value);
 };

@@ -2,7 +2,7 @@ const getClosestColor = ([ r, g, b ], colors) => {
     let res = 0;
     let biggestDifference = 1000;
     for (let i = 0; i < colors.length; i++) {
-        const x = Math.sqrt(Math.pow(r - colors[i][0], 2) + Math.pow(g - colors[i][1], 2) + Math.pow(b - colors[i][2], 2))
+        const x = Math.sqrt(Math.pow(r - colors[i][0], 2) + Math.pow(g - colors[i][1], 2) + Math.pow(b - colors[i][2], 2));
         if (x < biggestDifference) {
             res = i;
             biggestDifference = x;
@@ -47,12 +47,12 @@ window.onload = () => {
                 .from(
                     { length: ~~(img.width / (+lR.value || 1)) },
                     (_, i, chance = Math.random()) => Array
-                        .from({ length: img.height }, (_,) => 0)
+                        .from({ length: img.height }, (_) => 0)
                         .reduce(a => {
                             const last = a[a.length - 1];
                             const n = Math.random() > 0.5 ? ~~(Math.random() * ((+lCM.value || 2) - (+lCMI.value || 0))) + (+lCMI.value || 0) : 0;
                             return [...a, last + n * (Math.random() > chance || last - n <= 0 ? 1 : -1)];
-                        }, [i / (+lR.value || 1)]), 
+                        }, [i / (+lR.value || 1)]),
                 )
                 .flatMap(coords => coords.map((x, y) => ({
                     x, y,
@@ -76,8 +76,8 @@ window.onload = () => {
     };
     fileInp.onchange = () => {
         const reader = new FileReader();
-		reader.readAsDataURL(fileInp.files[0]);
-		reader.onload = x => load(x.target.result);
+        reader.readAsDataURL(fileInp.files[0]);
+        reader.onload = x => load(x.target.result);
     };
     btn.onclick = () => load(urlInp.value);
 };
