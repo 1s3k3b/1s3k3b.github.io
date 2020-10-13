@@ -1,13 +1,16 @@
 <script>
-    fetch(`https://cors-anywhere.herokuapp.com/https://frhd.co/t/${[...new URLSearchParams(window.location.search).keys()][0]}?ajax`)
-        .then(d => d.json())
-        .then(d => {
-            if (!d.track) {
-                document.body.innerText = 'Track not found.';
-                return document.title = 'Track not found';
-            }
-            document.title = `${d.track.title} by ${d.track.author}`;
-            document.body.innerText = `${d.track.title}
+    window.onload = () => {
+        const [id] = new URLSearchParams(window.location.search).keys();
+        if (id) {
+            fetch(`https://cors-anywhere.herokuapp.com/https://frhd.co/t/${id}?ajax`)
+                .then(d => d.json())
+                .then(d => {
+                    if (!d.track) {
+                        document.body.innerText = 'Track not found.';
+                        return document.title = 'Track not found';
+                    }
+                    document.title = `${d.track.title} by ${d.track.author}`;
+                    document.body.innerText = `${d.track.title}
 ${d.track.descr}
 Author: ${d.track.author}
 Size: ${d.track.kb_size} KB
@@ -16,5 +19,9 @@ Vehicles: ${d.track.vehicles.map(x => x === d.track.vehicle ? `${x} (default)` :
 Average Time: ${d.track_stats.avg_time}
 Votes: ${d.track_stats.up_votes}/${d.track_stats.dwn_votes} (total: ${d.track_stats.votes}, vote percent: ${d.track_stats.vote_percent}%)
 Plays/runs: ${d.track_stats.plays}/${d.track_stats.runs} (completion rate: ${d.track_stats.cmpltn_rate})`;
-        });
+                });
+        } else {
+            document.body.innerHTML = `<input id="id" placeholder="Track ID"><button onclick="window.location = 'https://1s3k3b.github.io/frhd/track?' + document.getElementById('id').value">Get</button>`;
+        }
+    };
 </script>
