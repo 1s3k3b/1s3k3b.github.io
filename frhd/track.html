@@ -21,7 +21,7 @@ Votes: ${d.track_stats.up_votes}/${d.track_stats.dwn_votes} (total: ${d.track_st
 Plays/runs: ${d.track_stats.plays}/${d.track_stats.runs} (completion rate: ${d.track_stats.cmpltn_rate})`;
                 });
         } else {
-            document.body.innerHTML = `<input id="id" placeholder="Track ID"><button onclick="window.location = 'https://1s3k3b.github.io/frhd/track?' + document.getElementById('id').value">Get</button>`;
+            document.body.innerHTML = `<input id="id" placeholder="Track ID"><button onclick="window.location = 'https://1s3k3b.github.io/frhd/track?' + (document.getElementById('id').value.match(/\\d+(-.+)*$/)?.[0] ?? '')">Get</button>`;
         }
     };
 </script>
