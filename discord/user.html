@@ -1,6 +1,6 @@
 <script>
     const params = new URLSearchParams(window.location.search);
-    const id = params.get('id')?.match(/\d{17,21}/)?.[0];
+    const id = params.keys().next().value?.match(/\d{17,21}/)?.[0];
     if (id) fetch(`https://discordapp.com/api/v8/users/${id}`, {
         headers: {
             'Content-Type': 'application/json',
