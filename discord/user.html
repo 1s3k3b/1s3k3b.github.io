@@ -1,7 +1,7 @@
 <script>
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id')?.match(/\d{17,21}/)?.[0];
-    if (id) fetch(`https://discordapp.com/api/v6/users/${id}`, {
+    if (id) fetch(`https://discordapp.com/api/v8/users/${id}`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bot ' + atob('TmpjME1qY3pOekUwTVRBek16ZzJNVFl5LlhqbU1XZy53Q0N4M0t0MllwY3ZmYWhfaWZMUk1abHFYSGc='), // yeah this is an actual token, it's in no guilds but feel free to troll or something.
