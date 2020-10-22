@@ -208,16 +208,7 @@ const f = (c, dX, dY) => {
     return parser.toCode({ ...parsed, scenery: [...parsed.scenery, ...res] });
 };
 
-const getel = id => document.getElementById(id);
-
 window.onload = () => {
-    const inp = getel('inp');
-    const x = getel('x');
-    const y = getel('y');
-    const outp = getel('outp');
-    const btn = getel('btn');
-    const down = getel('down');
-
     btn.onclick = () => {
         outp.value = f(inp.value, isNaN(+x.value) ? 30 : +x.value, isNaN(+y.value) ? 30 : +y.value);
     };

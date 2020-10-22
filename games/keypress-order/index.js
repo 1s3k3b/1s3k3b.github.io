@@ -1,5 +1,3 @@
-const getel = id => document.getElementById(id);
-
 const keys = {
     'ArrowUp': ['ArrowRight', 'KeyD'],
     'KeyW': ['ArrowRight', 'KeyD'],
@@ -39,7 +37,6 @@ const fixDpi = c => {
     c.setAttribute('width', width * dpi);
 };
 window.onload = () => {
-    const c = getel('c');
     const ctx = c.getContext('2d');
     fixDpi(c);
 

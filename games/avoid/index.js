@@ -1,4 +1,3 @@
-const getel = id => document.getElementById(id);
 const COLORS = ['#ff4d40', '#ff7340', '#ff9640', '#ffc240', '#ffdc40', '#f2ff40', '#cfff40', '#a3ff40', '#7cff40', '#53ff40', '#40ff53', '#40ff70', '#40ff9f', '#40ffd2', '#40f9ff', '#40b6ff', '#408fff', '#4069ff', '#4340ff', '#5c40ff', '#8340ff', '#ac40ff', '#d640ff', '#ff40ef', '#ff40af', '#ff407c', '#ff4050'];
 
 class Point {
@@ -67,7 +66,6 @@ const fixDpi = c => {
     c.setAttribute('width', width * dpi);
 };
 window.onload = () => {
-    const c = getel('c');
     const ctx = c.getContext('2d');
     fixDpi(c);
 

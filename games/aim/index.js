@@ -11,7 +11,6 @@ class Point {
     }
 }
 
-const getel = id => document.getElementById(id);
 const wait = ms => new Promise(r => setTimeout(r, ms));
 const fixDpi = c => {
     const dpi = window.devicePixelRatio;
@@ -27,7 +26,6 @@ const fixDpi = c => {
 const assist = !!parseInt(new URLSearchParams(window.location.search).get('assist') || 0);
 
 window.onload = () => {
-    const c = getel('c');
     const ctx = c.getContext('2d');
     fixDpi(c);
 

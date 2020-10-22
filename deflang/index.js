@@ -374,13 +374,7 @@ const parse = str => {
     return _parse(str);
 };
 
-const getel = id => document.getElementById(id);
-
-window.onload = () => {
-    const code = getel('code');
-    const outp = getel('outp');
-    const btn = getel('btn');
-
+window.onload = () =>
     btn.addEventListener('click', async () => {
         outp.value = '';
         let res;
@@ -392,4 +386,3 @@ window.onload = () => {
         }
         outp.value = res;
     });
-};

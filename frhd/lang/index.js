@@ -330,15 +330,9 @@ repeat tileS
           scenery (j+x)*tileS+l y+k*tileS+i (j+x)*tileS+l+2 y+k*tileS+i+2
   increment y Math.random() > increaseChance ? tileS : Math.random() > decreaseChance ? -tileS : 0`
 ];
-const getel = id => document.getElementById(id);
 
 window.onload = () => {
-    const code = getel('inp');
-    const out = getel('outp');
-    const comp = getel('comp');
-    const btn = getel('btn');
-    const down = getel('down');
-    const preset = getel('presets');
+    const preset = document.getElementById('presets');
 
     code.value = presets[0];
 

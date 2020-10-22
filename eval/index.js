@@ -1,5 +1,3 @@
-const getel = id => document.getElementById(id);
-
 const inspect = (obj, { indent = 2, string = 1, depth = 3 } = {}, __depth__ = 0, __indentLevel__ = indent) => {
     if (depth < 2) throw new RangeError('"depth" option must be greater than 1');
 
@@ -58,13 +56,6 @@ const evalStr = async (str, depth, insp) => {
 
 window.onload = () => {
     const params = new URLSearchParams(window.location.search);
-
-    const inp = getel('inp');
-    const outp = getel('outp');
-    const btn = getel('btn');
-    const linkgen = getel('link');
-    const insp = getel('insp');
-    const depth = getel('depth');
 
     if (params.get('code')) inp.value = atob(params.get('code'));
     if (params.get('depth')) depth.value = params.get('depth');

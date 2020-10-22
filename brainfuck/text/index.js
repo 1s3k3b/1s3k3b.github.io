@@ -5,16 +5,9 @@ const f = str =>
         .join('')
         + '<'.repeat(str.length) + '[.>]';
 
-const getel = id => document.getElementById(id);
-
-window.onload = () => {
-    const text = getel('text');
-    const outp = getel('outp');
-    const btn = getel('btn');
-
+window.onload = () =>
     btn.addEventListener('click', async () => {
         outp.value = '';
         const res = f(text.value);
         outp.value = res;
     });
-};

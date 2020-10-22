@@ -31,12 +31,8 @@ let lineWidth = 1;
 let erasing = false;
 
 window.onload = () => {
-    const c = getel('c');
     const lineWidthEl = getel('linew');
     const colorEl = getel('color');
-    const eraser = getel('eraser');
-    const downl = getel('downl');
-    const reset = getel('reset');
     const randcol = getel('randc');
 
     const ctx = c.getContext('2d');

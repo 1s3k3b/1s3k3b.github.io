@@ -16,18 +16,9 @@ const rgbToHex = ([r, g, b]) => '#' + ((1 << 24) + (r << 16) + (g << 8) + b)
 const getel = id => document.getElementById(id);
 
 window.onload = () => {
-    const c = getel('c');
     const ctx = c.getContext('2d');
     const fileInp = getel('file');
     const urlInp = getel('url');
-    const btn = getel('btn');
-
-    const lR = getel('lR');
-    const cD = getel('cD');
-    const mC = getel('mC');
-    const lW = getel('lW');
-    const lCM = getel('lCM');
-    const lCMI = getel('lCMI');
 
     const load = async url => {
         const _cD = +cD.value || 1;

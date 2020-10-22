@@ -214,15 +214,7 @@ const unbrush = (code, n) => {
     return parser.toCode({ ...parsed, physics: parsed.physics.map(x => x.coords ? (x.coords = x.coords.filter((_, i, a) => !(i % n)), x) : x) });
 };
 
-const getel = id => document.getElementById(id);
-
 window.onload = () => {
-    const inp = getel('inp');
-    const n = getel('n');
-    const outp = getel('outp');
-    const btn = getel('btn');
-    const down = getel('down');
-
     btn.onclick = () => {
         outp.value = unbrush(inp.value, isNaN(+n.value) ? 15 : +n.value);
     };

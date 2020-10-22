@@ -55,16 +55,7 @@ const f = (n, width, space) => {
     }##${powerups.map(p => p.join(' ')).join(',')}`;
 };
 
-const getel = id => document.getElementById(id);
-
 window.onload = () => {
-    const out = getel('out');
-    const len = getel('len');
-    const w = getel('w');
-    const s = getel('s');
-    const btn = getel('btn');
-    const down = getel('down');
-
     btn.onclick = () => {
         out.value = f(+len.value || 10, +w.value || 100, +s.value || 180);
     };

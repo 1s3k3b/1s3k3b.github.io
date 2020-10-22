@@ -221,17 +221,7 @@ const animate = (code, n, d, diff) => {
     return parser.toCode({ physics, scenery, powerups });
 };
 
-const getel = id => document.getElementById(id);
-
 window.onload = () => {
-    const inp = getel('inp');
-    const frms = getel('frms');
-    const deg = getel('deg');
-    const diff = getel('diff');
-    const outp = getel('outp');
-    const btn = getel('btn');
-    const down = getel('down');
-
     btn.onclick = () => {
         outp.value = animate(inp.value, isNaN(+frms.value) ? 100 : +frms.value, isNaN(+deg.value) ? 7.2 : +deg.value, isNaN(+diff.value) ? 2000 : +diff.value);
     };

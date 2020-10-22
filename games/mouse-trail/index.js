@@ -1,4 +1,3 @@
-const getel = id => document.getElementById(id);
 const clamp = (n, mi, ma) => Math.min(Math.max(n, mi), ma);
 const fixDpi = c => {
     const dpi = window.devicePixelRatio;
@@ -32,7 +31,6 @@ window.onload = () => {
     wiggleLevel = clamp(parseInt(params.get('wiggleLevel') || '2'), 1, 50);
     lineWidth = clamp(parseInt(params.get('lineWidth') || '1'), 1, 15);
 
-    const c = getel('c');
     const ctx = c.getContext('2d');
     fixDpi(c);
     const emit = () => {

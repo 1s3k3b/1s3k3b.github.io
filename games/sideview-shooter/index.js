@@ -1,5 +1,3 @@
-const getel = id => document.getElementById(id);
-
 class Bullet {
     constructor(x, y) {
         this.x = x;
@@ -55,7 +53,6 @@ const fixDpi = c => {
     c.setAttribute('width', width * dpi);
 };
 window.onload = () => {
-    const c = getel('c');
     const ctx = c.getContext('2d');
     fixDpi(c);
 

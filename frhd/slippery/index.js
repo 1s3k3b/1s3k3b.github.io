@@ -22,15 +22,7 @@
 const f = (x, n) => `${(x.split('#')[0] + ',').repeat(n)}#${x.split('#').slice(1)
     .join('#')}`;
 
-const getel = id => document.getElementById(id);
-
 window.onload = () => {
-    const inp = getel('in');
-    const out = getel('out');
-    const len = getel('len');
-    const btn = getel('btn');
-    const down = getel('down');
-
     btn.onclick = () => {
         out.value = f(inp.value, +len.value || 10);
     };

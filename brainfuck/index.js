@@ -85,16 +85,10 @@ const interpret = (str, input = '') => {
     return output;
 };
 
-const getel = id => document.getElementById(id);
 
-window.onload = () => {
-    const code = getel('code');
-    const outp = getel('outp');
-    const btn = getel('btn');
-
+window.onload = () => 
     btn.addEventListener('click', async () => {
         outp.value = '';
         const res = interpret(code.value, inp.value);
         outp.value = res;
     });
-};

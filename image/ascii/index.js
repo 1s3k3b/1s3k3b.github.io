@@ -38,11 +38,9 @@ const getClosestColor = ([ r, g, b ]) => {
 const getel = id => document.getElementById(id);
 
 window.onload = () => {
-    const c = getel('c');
     const ctx = c.getContext('2d');
     const fileInp = getel('file');
     const urlInp = getel('url');
-    const btn = getel('btn');
 
     const load = async url => {
         const img = new Image();

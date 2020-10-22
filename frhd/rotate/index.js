@@ -202,15 +202,7 @@ const f = (code, deg) => {
     });
 };
 
-const getel = id => document.getElementById(id);
-
 window.onload = () => {
-    const inp = getel('inp');
-    const deg = getel('deg');
-    const outp = getel('outp');
-    const btn = getel('btn');
-    const down = getel('down');
-
     btn.onclick = () => {
         outp.value = f(inp.value, isNaN(+deg.value) ? 30 : +deg.value);
     };

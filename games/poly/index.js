@@ -67,9 +67,8 @@ class Point {
     }
 }
 
-const getel = id => document.getElementById(id);
-
-const points = new Array(2).fill(() => new Point())
+const points = new Array(2)
+.fill(() => new Point())
     .map(x => x());
 const mouse = {
     x: 0,
@@ -89,7 +88,6 @@ const fixDpi = c => {
 };
 
 window.onload = () => {
-    const c = getel('c');
     const ctx = c.getContext('2d');
     fixDpi(c);
 

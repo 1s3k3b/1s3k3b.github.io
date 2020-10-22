@@ -4,12 +4,9 @@ const rgbToHex = ([r, g, b]) => '#' + ((1 << 24) + (r << 16) + (g << 8) + b)
     .slice(1);
 
 window.onload = () => {
-    const c = getel('c');
     const ctx = c.getContext('2d');
     const fileInp = getel('file');
     const urlInp = getel('url');
-    const btn = getel('btn');
-    const pixel = getel('pixel');
 
     const load = async url => {
         const n = +pixel.value || 10;

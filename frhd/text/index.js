@@ -122,15 +122,7 @@ const f = (str, { spacing = 30, xOff = 0, yOff = 0 } = {}) => {
     return out.join(',') + '##';
 };
 
-
-const getel = id => document.getElementById(id);
-
 window.onload = () => {
-    const inp = getel('inp');
-    const outp = getel('outp');
-    const btn = getel('btn');
-    const down = getel('down');
-
     btn.onclick = () => {
         outp.value = f(inp.value);
     };

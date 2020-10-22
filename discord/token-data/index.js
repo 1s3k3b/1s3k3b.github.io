@@ -55,17 +55,9 @@ const fetchData = async token => {
     return { data, timestamp };
 };
 
-const getel = id => document.getElementById(id);
-
 window.onload = () => {
     const params = new URLSearchParams(window.location.search);
-
-    const inp = getel('inp');
-    const outp = getel('outp');
-    const btn = getel('btn');
-
     if (params.get('token')) inp.value = params.get('token');
-
     btn.addEventListener('click', async () => {
         if (!inp.value) return;
         const data = await fetchData(inp.value);
