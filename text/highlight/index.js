@@ -23,7 +23,7 @@ const highlight = (b, a) => {
     ) {
         const i = b
             .split('')
-            .findIndex((x, y) => y > lastI && x.toLowerCase() === c.toLowerCase());
+            .findIndex((x, y) => y > lastI + (+['append', 'prepend', 'enclose'].includes(method)) && x.toLowerCase() === c.toLowerCase());
         if (i === -1) break;
         b = b
             .split('')
