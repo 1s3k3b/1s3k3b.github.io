@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Text</title>
+        <script>
+            const get = u => fetch(u).then(d => d.json());
+            get('https://api.github.com/repos/1s3k3b/1s3k3b.github.io/git/trees/master')
+                .then(x =>
+                    get(x.tree.find(x => x.path === 'text').url)
+                        .then(d => d.tree
+                            .filter(x => x.path !== 'index.html')
+                            .forEach(d => {
+                                document.body.innerHTML += `<p><a href="./${d.path}">${d.path.split('-').map(x => `${x[0].toUpperCase()}${x.slice(1)}`).join(' ')}</a></p>`;
+                            })
+                        ),
+                );
+        </script>
+        <style>
+            body {
+                font-family: Roboto, "Segoe UI", Arial;
+                background-color: #232323;
+            }
+
+            p, a {
+                color: white;
+            }
+        </style>
+    </head>
+    <body></body>
+</html>
