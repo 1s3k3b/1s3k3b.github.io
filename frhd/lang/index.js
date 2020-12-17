@@ -227,7 +227,7 @@ repeat length
   if !(i % ~~Math.sqrt(length))
     powerup \`C \${x.toString(32)} \${(y-30).toString(32)}\`
   if i === length - 1
-    powerup \`T \${x.toString(32)} \${(y-30).toString(32)}\``, */
+    powerup \`T \${x.toString(32)} \${(y-30).toString(32)}\``,
     `var width 3000
 var height 1000
 
@@ -328,13 +328,13 @@ repeat tileS
       repeat tileS
         if Math.random() > fillChance
           scenery (j+x)*tileS+l y+k*tileS+i (j+x)*tileS+l+2 y+k*tileS+i+2
-  increment y Math.random() > increaseChance ? tileS : Math.random() > decreaseChance ? -tileS : 0`
+  increment y Math.random() > increaseChance ? tileS : Math.random() > decreaseChance ? -tileS : 0` */
 ];
 
 window.onload = () => {
     const preset = document.getElementById('presets');
 
-    code.value = presets[0];
+    // code.value = presets[0];
 
     preset.onchange = () => {
         if (presets[preset.selectedIndex] && confirm('Are you sure you want to load that preset?')) code.value = presets[preset.selectedIndex];
