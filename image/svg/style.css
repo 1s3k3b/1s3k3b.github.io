@@ -1,0 +1,14 @@
+body {
+    background-color: #232323;
+}
+
+button {
+    background-color: white;
+    border: none;
+}
+
+textarea {
+    width: 100%;
+    height: 97.5%;
+    margin-top: 5;
+}
