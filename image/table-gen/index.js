@@ -39,9 +39,8 @@ window.onload = () => {
             let tr = '<tr height="1">';
             for (let x = 0; x < img.width; x++) {
                 const [r, g, b, a] = ctx.getImageData(x, y, 1, 1).data;
-                if (a) tr += `<td width="1" bgcolor="${[r, g, b].map(n => n.toString(16).padStart(2, '0')).join('')}"></td>`;
+                tr += `<td width="1" bgcolor="${[r, g, b].map(n => n.toString(16).padStart(2, '0')).join('')}"></td>`;
             }
-            console.log(tr);
             txt += tr + '</tr>'
         }
         saveAs(new Blob(['<body style="margin: 0;">' + txt + '</table></body>'], { type: 'text/html' }), 'tableimg.html');
